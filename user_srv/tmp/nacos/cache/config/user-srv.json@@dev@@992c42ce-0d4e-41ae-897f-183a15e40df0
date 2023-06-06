@@ -1,0 +1,14 @@
+{
+    "name": "user-srv",
+    "mysql": {
+        "Host": "127.0.0.1",
+        "Port": 3306,
+        "Name": "mxshop_user_srv",
+        "User": "root",
+        "Password": "by6671715"
+    },
+    "consul": {
+        "host": "127.0.0.1",
+        "port": 8500
+    }
+}

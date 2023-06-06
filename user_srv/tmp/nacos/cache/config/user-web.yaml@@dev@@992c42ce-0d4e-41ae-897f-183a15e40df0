@@ -1,0 +1,13 @@
+name: 'user-web'
+port: 8022
+user-srv:
+    host: '169.254.14.87'
+    port: 50001
+jwt:
+    key: "V$6mQ3cU3WtOxHBXiFGH&PcinkZ&WO@p"
+redis:
+    host: 169.254.14.87
+    port: 6379
+consul:
+    host: 127.0.0.1
+    port: 8500

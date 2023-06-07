@@ -22,8 +22,6 @@ import (
 type UserServer struct{}
 
 func ModelToRsponse(user model.User) proto.UserInfoResponse {
-	//在grpc的message中字段有默认值，你不能随便赋值nil进去，容易出错
-	//这里要搞清， 哪些字段是有默认值
 	userInfoRsp := proto.UserInfoResponse{
 		Id:       user.ID,
 		PassWord: user.Password,

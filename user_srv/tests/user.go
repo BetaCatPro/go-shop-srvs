@@ -45,9 +45,9 @@ func TestGetUserList() {
 func TestCreateUser() {
 	for i := 0; i < 10; i++ {
 		rsp, err := userClient.CreateUser(context.Background(), &proto.CreateUserInfo{
-			NickName: fmt.Sprintf("bobby%d", i),
-			Mobile:   fmt.Sprintf("1878222222%d", i),
-			PassWord: "admin123",
+			NickName: fmt.Sprintf("Alex%d", i),
+			Mobile:   fmt.Sprintf("17748082435%d", i),
+			PassWord: "123456",
 		})
 		if err != nil {
 			panic(err)

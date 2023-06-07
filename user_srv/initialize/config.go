@@ -36,7 +36,7 @@ func InitConfig() {
 	if err := v.ReadInConfig(); err != nil {
 		panic(err)
 	}
-	//这个对象如何在其他文件中使用 - 全局变量
+	// 全局变量
 	if err := v.Unmarshal(&global.NacosConfig); err != nil {
 		panic(err)
 	}

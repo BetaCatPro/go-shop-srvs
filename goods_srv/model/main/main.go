@@ -16,9 +16,7 @@ import (
 	"gorm.io/gorm/schema"
 )
 
-func main() {
-	dsn := "root:root@tcp(127.0.0.1:3306)/goods_test?charset=utf8mb4&parseTime=True&loc=Local"
-
+func initDB(dsn string) (*gorm.DB, error) {
 	newLogger := logger.New(
 		log.New(os.Stdout, "\r\n", log.LstdFlags),
 		logger.Config{
@@ -38,6 +36,12 @@ func main() {
 		panic(err)
 	}
 
+	return db, err
+}
+
+func main() {
+	dsn := "root:root@tcp(127.0.0.1:3306)/goods_test?charset=utf8mb4&parseTime=True&loc=Local"
+	db, _ := initDB(dsn)
 	_ = db.AutoMigrate(&model.Category{},
 		&model.Brands{}, &model.GoodsCategoryBrand{}, &model.Banner{}, &model.Goods{})
 	//Mysql2Es()
@@ -45,28 +49,11 @@ func main() {
 
 func Mysql2Es() {
 	dsn := "root:root@tcp(127.0.0.1:3306)/go_shop_goods_srv?charset=utf8mb4&parseTime=True&loc=Local"
-
-	newLogger := logger.New(
-		log.New(os.Stdout, "\r\n", log.LstdFlags),
-		logger.Config{
-			SlowThreshold: time.Second,
-			LogLevel:      logger.Info,
-			Colorful:      true,
-		},
-	)
-
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
-		NamingStrategy: schema.NamingStrategy{
-			SingularTable: true,
-		},
-		Logger: newLogger,
-	})
-	if err != nil {
-		panic(err)
-	}
+	db, _ := initDB(dsn)
 
 	host := "http://169.254.14.87:9200"
 	logger := log.New(os.Stdout, "", log.LstdFlags)
+	var err error
 	global.EsClient, err = elastic.NewClient(elastic.SetURL(host), elastic.SetSniff(false),
 		elastic.SetTraceLog(logger))
 	if err != nil {

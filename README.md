@@ -8,6 +8,7 @@
 - protoc 23.2
 - Consul 1.15.3
 - Nacos 1.4.6
+- ElasticSearch 7.x
 
 ## Usage
 

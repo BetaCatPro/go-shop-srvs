@@ -69,7 +69,7 @@ func main() {
 	zap.S().Debugf("启动服务器, 端口： %d", *Port)
 
 	//接收终止信号
-	quit := make(chan os.Signal)
+	quit := make(chan os.Signal, 1)
 	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
 	<-quit
 	if err = register_client.DeRegister(serviceId); err != nil {

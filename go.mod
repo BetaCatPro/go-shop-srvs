@@ -9,7 +9,6 @@ require (
 	github.com/go-redis/redis/v8 v8.6.0
 	github.com/go-redsync/redsync/v4 v4.0.4
 	github.com/golang/protobuf v1.4.3
-	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645
 	github.com/hashicorp/consul/api v1.3.0
 	github.com/mbobakov/grpc-consul-resolver v1.4.3
 	github.com/nacos-group/nacos-sdk-go v1.0.5

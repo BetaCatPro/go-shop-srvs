@@ -9,6 +9,8 @@
 - Consul 1.15.3
 - Nacos 1.4.6
 - ElasticSearch 7.x
+- RocketMQ 4.5.1
+- Jaeger 1.46.0
 
 ## Usage
 

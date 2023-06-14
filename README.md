@@ -4,13 +4,22 @@
 
 ## Environment
 
+基础环境
+
 - Golang 1.20.4
 - protoc 23.2
 - Consul 1.15.3
 - Nacos 1.4.6
 - ElasticSearch 7.x
-- RocketMQ 4.5.1
-- Jaeger 1.46.0
+- Redis ==> 主要用于数据缓存、分布式锁
+- PostgreSQL
+
+分布式服务及网关工具
+
+- 基于 RocketMQ 4.5.1 的提供可靠消息的最终一致性分布式事务方案
+- 使用 Jaeger 1.46.0 作为链路追踪工具
+- 使用 go-sentinel 作为限流，熔断工具，配置流量控制，熔断降级，系统保护等规则
+- 使用 Kong 作为微服务 API 网关，配置身份认证、安全控制、流量控制等插件
 
 ## Usage
 
